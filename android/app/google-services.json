@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "823024169394",
+    "project_id": "lms-firebase-c58dc",
+    "storage_bucket": "lms-firebase-c58dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823024169394:android:5d567a4af05c2c1cbbb4ab",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa20EcWQ0GUEUcVvrSZYxyh_6oPspU3yQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
