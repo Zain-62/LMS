@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import '../../utilities/constants.dart';
 import '../../widgeta/buutons.dart';
 import '../../widgeta/textfield.dart';
@@ -14,6 +17,27 @@ class RegisterScrren extends StatefulWidget {
 }
 
 class _RegisterScrrenState extends State<RegisterScrren> {
+  late TextEditingController nameC, mobileC, emailC, passC, courseC;
+  @override
+  void initState() {
+    nameC = TextEditingController();
+    mobileC = TextEditingController();
+    emailC = TextEditingController();
+    passC = TextEditingController();
+    courseC = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    nameC.dispose();
+    mobileC.dispose();
+    emailC.dispose();
+    passC.dispose();
+    courseC.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -37,6 +61,7 @@ class _RegisterScrrenState extends State<RegisterScrren> {
             ),
             const Gap(20),
             TextFields(
+              control: nameC,
               icon: const Icon(
                 Icons.person,
               ),
@@ -44,6 +69,7 @@ class _RegisterScrrenState extends State<RegisterScrren> {
               lbl: 'Name',
             ),
             TextFields(
+              control: emailC,
               icon: const Icon(
                 Icons.mail,
               ),
@@ -51,6 +77,7 @@ class _RegisterScrrenState extends State<RegisterScrren> {
               lbl: 'User Email',
             ),
             TextFields(
+              control: courseC,
               icon: const Icon(
                 Icons.school,
               ),
@@ -58,18 +85,21 @@ class _RegisterScrrenState extends State<RegisterScrren> {
               lbl: 'Course',
             ),
             TextFields(
+              keyboard: TextInputType.number,
+              control: mobileC,
+              icon: const Icon(
+                Icons.phone,
+              ),
+              hint: 'Enter your Number',
+              lbl: 'Phone',
+            ),
+            TextFields(
+              control: passC,
               icon: const Icon(
                 Icons.lock,
               ),
               hint: 'Enter your password',
               lbl: 'password',
-            ),
-            TextFields(
-              icon: const Icon(
-                Icons.lock,
-              ),
-              hint: 'Re enter password',
-              lbl: 'Confirm Password',
             ),
             const Gap(70),
             SizedBox(
@@ -77,12 +107,45 @@ class _RegisterScrrenState extends State<RegisterScrren> {
                 width: width * 0.5,
                 child: Elevated(
                   txt: 'Register',
-                  voidCallback: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => const LoginScreen(),
-                      ),
-                    );
+                  voidCallback: () async {
+                    try {
+                      FirebaseAuth auth = FirebaseAuth.instance;
+
+                      UserCredential? userCredentials =
+                          await auth.createUserWithEmailAndPassword(
+                        email: emailC.text.trim(),
+                        password: passC.text.trim(),
+                      );
+
+                      if (userCredentials.user != null) {
+                        // save other info in firestore
+
+                        FirebaseFirestore firebaseFirestore =
+                            FirebaseFirestore.instance;
+
+                        await firebaseFirestore
+                            .collection('users')
+                            .doc(userCredentials.user!.uid)
+                            .set({
+                          'name': nameC.text.trim(),
+                          'mobile': mobileC.text.trim(),
+                          'email': emailC.text.trim(),
+                          'course': courseC.text.trim(),
+                          'Password': passC.text.trim(),
+                          'uid': userCredentials.user!.uid,
+                          'createdOn': DateTime.now().millisecondsSinceEpoch,
+                          'photo': null,
+                        });
+                      }
+
+                      Fluttertoast.showToast(msg: 'Success', fontSize: 30);
+                    } on FirebaseAuthException catch (e) {
+                      print(e.code);
+                      print(e.message!);
+
+                      Fluttertoast.showToast(msg: e.message!, fontSize: 30);
+                      Navigator.pop(context);
+                    }
                   },
                 ))
           ],
