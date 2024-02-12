@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/main_screens/dashboard.dart';
+import 'package:flutter_application_1/screens/main_screens/registerscreen.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
 import 'package:flutter_application_1/widgeta/buutons.dart';
 import 'package:flutter_application_1/widgeta/textfield.dart';
@@ -65,7 +66,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       );
                     },
-                  ))
+                  )),
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            const RegisterScrren(),
+                      ),
+                    );
+                  },
+                  child: Text('REgister'))
             ],
           ),
         ),
