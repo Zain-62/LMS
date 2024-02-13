@@ -59,9 +59,9 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
           const Gap(100),
           Text(
               'Very Email\nAn email has been sent to ${FirebaseAuth.instance.currentUser!.email}'),
-          Text('Please Verify It'),
+          const Text('Please Verify It'),
           const Gap(20),
-          SpinKitDualRing(color: Colors.blue),
+          const SpinKitDualRing(color: Colors.blue),
           ElevatedButton(
               onPressed: () {
                 FirebaseAuth.instance.currentUser!.sendEmailVerification();

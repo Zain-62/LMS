@@ -1,10 +1,10 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously, prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import '../../utilities/constants.dart';
 import '../../widgeta/buutons.dart';
 import '../../widgeta/textfield.dart';
@@ -139,12 +139,12 @@ class _RegisterScrrenState extends State<RegisterScrren> {
                       }
 
                       Fluttertoast.showToast(msg: 'Success', fontSize: 30);
+                      Navigator.pop(context);
                     } on FirebaseAuthException catch (e) {
                       print(e.code);
                       print(e.message!);
 
                       Fluttertoast.showToast(msg: e.message!, fontSize: 30);
-                      Navigator.pop(context);
                     }
                   },
                 ))
