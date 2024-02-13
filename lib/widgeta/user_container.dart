@@ -43,16 +43,16 @@ class _UserDetailContainerState extends State<UserDetailContainer> {
               children: [
                 Text(
                   "Name : ${widget.name}",
-                  style: const TextStyle(fontSize: 20, color: Colors.white),
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
                 ),
                 Text(
                   "Id : ${widget.Id}",
-                  style: const TextStyle(fontSize: 20, color: Colors.white),
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
                 ),
                 Text(
                   maxLines: 1,
                   "course : ${widget.course}",
-                  style: const TextStyle(fontSize: 20, color: Colors.white),
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
                 )
               ],
             ),
@@ -65,10 +65,10 @@ class _UserDetailContainerState extends State<UserDetailContainer> {
                 children: [
                   CircleAvatar(
                     backgroundColor: Colors.white,
-                    radius: 60,
+                    radius: 40,
                     child: Icon(
                       Icons.add_circle,
-                      size: 40,
+                      size: 15,
                       color: Color.fromARGB(255, 4, 45, 78),
                     ),
                   )
@@ -116,14 +116,14 @@ class DashContainer extends StatelessWidget {
               children: [
                 Icon(
                   icons1,
-                  size: height * 0.07,
+                  size: height * 0.06,
                   color: AppColors.darkblue,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, left: 35),
                   child: Icon(
                     icons2,
-                    size: height * 0.05,
+                    size: height * 0.04,
                     color: AppColors.darkblue,
                   ),
                 ),
@@ -132,7 +132,7 @@ class DashContainer extends StatelessWidget {
             Text(
               txt,
               style: const TextStyle(
-                fontSize: 20,
+                fontSize: 14,
                 color: AppColors.darkblue,
               ),
             )
