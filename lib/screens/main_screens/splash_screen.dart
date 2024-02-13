@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -5,17 +7,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/main_screens/dashboard.dart';
 import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
 
-class Splash extends StatefulWidget {
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
-  _SplashState createState() => _SplashState();
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 6),
+        const Duration(seconds: 6),
         () => Navigator.pushReplacement(
             context,
             MaterialPageRoute(

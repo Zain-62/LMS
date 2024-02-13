@@ -1,8 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/main_screens/dashboard.dart';
-import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
 import 'package:flutter_application_1/screens/main_screens/splash_screen.dart';
 
 void main(List<String> args) async {
@@ -25,6 +22,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Splash());
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false, home: SplashScreen());
   }
 }
