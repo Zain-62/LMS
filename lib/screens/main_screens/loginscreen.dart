@@ -1,5 +1,4 @@
 // ignore_for_file: use_build_context_synchronously
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/main_screens/dashboard.dart';
@@ -65,8 +64,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 icon: const Icon(
                   Icons.person,
                 ),
-                hint: 'Enter your Id',
-                lbl: 'User Id',
+                hint: 'Enter your Email',
+                lbl: 'User Email',
               ),
               TextFields(
                 control: passC,
