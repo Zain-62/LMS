@@ -59,14 +59,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const Gap(50),
-              // TextFields(
-              //   control: emailC,
-              //   icon: const Icon(
-              //     Icons.person,
-              //   ),
-              //   hint: 'Enter your Id',
-              //   lbl: 'User Id',
-              // ),
+              TextFields(
+                control: emailC,
+                icon: const Icon(
+                  Icons.person,
+                ),
+                hint: 'Enter your Id',
+                lbl: 'User Id',
+              ),
               TextFields(
                 control: passC,
                 icon: const Icon(
