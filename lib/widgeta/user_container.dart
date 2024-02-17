@@ -5,10 +5,10 @@ import 'package:flutter_application_1/utilities/constants.dart';
 class UserDetailContainer extends StatefulWidget {
   String name = '';
   String Id = '';
-  String course = '';
+  String course;
 
   UserDetailContainer(
-      {super.key, required this.name, required this.Id, required this.course});
+      {super.key, required this.name, required this.Id, this.course = ''});
 
   @override
   State<UserDetailContainer> createState() => _UserDetailContainerState();

@@ -12,7 +12,7 @@ class TextFields extends StatelessWidget {
     required this.hint,
     required this.lbl,
     super.key,
-    required this.icon,
+    this.icon,
     required this.control,
     this.keyboard,
   });

@@ -3,14 +3,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/StudentScreens/main_screens/dashboard.dart';
-import 'package:flutter_application_1/StudentScreens/main_screens/varificationscreen.dart';
+import 'package:flutter_application_1/screens/main_screens/varificationscreen.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
 import 'package:flutter_application_1/widgeta/buutons.dart';
 import 'package:flutter_application_1/widgeta/textfield.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
-
-import '../../screens/main_screens/registerscreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -61,14 +59,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const Gap(50),
-              TextFields(
-                control: emailC,
-                icon: const Icon(
-                  Icons.person,
-                ),
-                hint: 'Enter your Id',
-                lbl: 'User Id',
-              ),
+              // TextFields(
+              //   control: emailC,
+              //   icon: const Icon(
+              //     Icons.person,
+              //   ),
+              //   hint: 'Enter your Id',
+              //   lbl: 'User Id',
+              // ),
               TextFields(
                 control: passC,
                 icon: const Icon(
@@ -104,23 +102,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           }));
                         }
                       } on FirebaseAuthException catch (e) {
-                        // you can display custom messages
                         if (e.code == 'user-not-found') {}
 
                         Fluttertoast.showToast(msg: e.message!, fontSize: 30);
                       }
                     },
                   )),
-              TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            const RegisterScrren(),
-                      ),
-                    );
-                  },
-                  child: const Text('REgister'))
             ],
           ),
         ),

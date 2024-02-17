@@ -118,8 +118,6 @@ class _RegisterScrrenState extends State<RegisterScrren> {
                       );
 
                       if (userCredentials.user != null) {
-                        // save other info in firestore
-
                         FirebaseFirestore firebaseFirestore =
                             FirebaseFirestore.instance;
 

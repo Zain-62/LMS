@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/admin/adminscreen.dart';
 import 'package:flutter_application_1/screens/functional_screens/assignment_screen.dart';
 import 'package:flutter_application_1/screens/functional_screens/attendence_screen.dart';
 import 'package:flutter_application_1/screens/functional_screens/course_screen.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
 import 'package:flutter_application_1/screens/functional_screens/query_screen.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
 import 'package:flutter_application_1/widgeta/user_container.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});
@@ -32,11 +34,25 @@ class _DashBoardState extends State<DashBoard> {
             centerTitle: true,
             backgroundColor: AppColors.darkblue,
           ),
-          drawer: const Drawer(),
+          drawer: Drawer(
+            child: Column(
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const AdminDashboard(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.abc))
+              ],
+            ),
+          ),
           body: Padding(
             padding: const EdgeInsets.all(20.0),
             child: ListView(
-              //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 UserDetailContainer(
                   name: 'zain ul abidin',
@@ -121,12 +137,14 @@ class _DashBoardState extends State<DashBoard> {
                       icons2: Icons.messenger_outlined,
                       txt: 'Query',
                       voidCallback: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const QueryScrren(),
-                          ),
-                        );
+                        // ignore: deprecated_member_use
+                        launch('https://wa.me/message/ROZDRCMNK3CMP1');
+                        // Navigator.of(context).push(
+                        //   MaterialPageRoute(
+                        //     builder: (BuildContext context) =>
+                        //         const QueryScrren(),
+                        //   ),
+                        // );
                       },
                     ),
                     DashContainer(
