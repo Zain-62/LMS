@@ -9,6 +9,8 @@ import 'package:flutter_application_1/utilities/constants.dart';
 import 'package:flutter_application_1/widgeta/user_container.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../profile.dart';
+
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});
 
@@ -53,11 +55,14 @@ class _DashBoardState extends State<DashBoard> {
             padding: const EdgeInsets.all(20.0),
             child: ListView(
               children: [
-                UserDetailContainer(
-                  name: 'zain ul abidin',
-                  Id: '12827',
-                  course: 'App development',
-                ),
+                Container(
+                    child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProfileScreen()));
+                  },
+                  child: Text("profile"),
+                )),
                 const SizedBox(
                   height: 30,
                 ),
