@@ -1,20 +1,44 @@
 // ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables, non_constant_identifier_names
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/screens/profile.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class UserDetailContainer extends StatefulWidget {
-  String name = '';
-  String Id = '';
-  String course;
-
-  UserDetailContainer(
-      {super.key, required this.name, required this.Id, this.course = ''});
+  UserDetailContainer({super.key});
 
   @override
   State<UserDetailContainer> createState() => _UserDetailContainerState();
 }
 
 class _UserDetailContainerState extends State<UserDetailContainer> {
+  DocumentSnapshot? userSnapshot;
+
+  @override
+  void initState() {
+    getUserDetails();
+    super.initState();
+  }
+
+  getUserDetails() async {
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+
+    userSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+
+    setState(() {
+      CircleAvatar(
+        backgroundColor: AppColors.darkblue,
+        radius: 40,
+        backgroundImage: NetworkImage(userSnapshot!['photo'] as String),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -33,51 +57,60 @@ class _UserDetailContainerState extends State<UserDetailContainer> {
                 Color.fromARGB(255, 4, 45, 78),
                 Color.fromARGB(255, 12, 22, 31),
               ])),
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Row(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Name : ${widget.name}",
-                  style: const TextStyle(fontSize: 14, color: Colors.white),
-                ),
-                Text(
-                  "Id : ${widget.Id}",
-                  style: const TextStyle(fontSize: 14, color: Colors.white),
-                ),
-                Text(
-                  maxLines: 1,
-                  "course : ${widget.course}",
-                  style: const TextStyle(fontSize: 14, color: Colors.white),
-                )
-              ],
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            const Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 40,
-                    child: Icon(
-                      Icons.add_circle,
-                      size: 15,
-                      color: Color.fromARGB(255, 4, 45, 78),
-                    ),
-                  )
-                ],
-              ),
+      child: userSnapshot == null
+          ? const Center(
+              child: SpinKitDualRing(color: AppColors.darkblue),
             )
-          ],
-        ),
-      ),
+          : InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const ProfileScreen(),
+                ));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Name: ${userSnapshot!['name']}',
+                          style: const TextStyle(
+                              fontSize: 14, color: Colors.white),
+                        ),
+                        Text(
+                          'Course: ${userSnapshot!['course']}',
+                          style: const TextStyle(
+                              fontSize: 14, color: Colors.white),
+                        ),
+                        Text(
+                          maxLines: 2, // Set to 2 to limit to two lines
+                          overflow:
+                              TextOverflow.ellipsis, // Show ellipsis (...) for
+                          'email: ${userSnapshot!['email']}',
+                          style: const TextStyle(
+                              fontSize: 12, color: Colors.white),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: CircleAvatar(
+                        backgroundColor: AppColors.darkblue,
+                        radius: 40,
+                        backgroundImage:
+                            NetworkImage(userSnapshot!['photo'] as String),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
     );
   }
 }

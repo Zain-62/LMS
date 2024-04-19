@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/main_screens/dashboard.dart';
 import 'package:flutter_application_1/screens/main_screens/registerscreen.dart';
 import 'package:flutter_application_1/screens/main_screens/varificationscreen.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
@@ -9,6 +8,8 @@ import 'package:flutter_application_1/widgeta/buutons.dart';
 import 'package:flutter_application_1/widgeta/textfield.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
+
+import '../dashboard.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

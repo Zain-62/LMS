@@ -36,10 +36,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             padding: const EdgeInsets.all(20.0),
             child: ListView(
               children: [
-                UserDetailContainer(
-                  name: 'zain ul abidin',
-                  Id: '12827',
-                ),
+                UserDetailContainer(),
                 const SizedBox(
                   height: 30,
                 ),

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/admin/adminscreen.dart';
 import 'package:flutter_application_1/screens/functional_screens/assignment_screen.dart';
@@ -7,9 +9,8 @@ import 'package:flutter_application_1/screens/functional_screens/fee_screen.dart
 import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
 import 'package:flutter_application_1/widgeta/user_container.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../profile.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});
@@ -19,6 +20,23 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
+  DocumentSnapshot? userSnapshot;
+
+  @override
+  void initState() {
+    getUserDetails();
+    super.initState();
+  }
+
+  getUserDetails() async {
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+
+    userSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -55,14 +73,7 @@ class _DashBoardState extends State<DashBoard> {
             padding: const EdgeInsets.all(20.0),
             child: ListView(
               children: [
-                Container(
-                    child: TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProfileScreen()));
-                  },
-                  child: Text("profile"),
-                )),
+                UserDetailContainer(),
                 const SizedBox(
                   height: 30,
                 ),
