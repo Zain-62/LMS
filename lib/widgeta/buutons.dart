@@ -20,3 +20,14 @@ class Elevated extends StatelessWidget {
     );
   }
 }
+
+class TxtButton extends StatelessWidget {
+  String txt;
+  final VoidCallback onpressed;
+  TxtButton({super.key, required this.onpressed, required this.txt});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(onPressed: onpressed, child: Text(txt));
+  }
+}

@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/functional_screens/course/coursedetail.dart';
+
+class IntroDetail extends StatelessWidget {
+  const IntroDetail({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: SafeArea(
+        child: Scaffold(
+          body: Column(
+            children: [
+              DetailScreen(txt: "Platform specific widgets"),
+              DetailScreen(txt: "Layout widgets"),
+              DetailScreen(txt: "Functions"),
+              DetailScreen(txt: "Object Oriented Programming"),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

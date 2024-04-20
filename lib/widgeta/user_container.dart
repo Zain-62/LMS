@@ -30,13 +30,8 @@ class _UserDetailContainerState extends State<UserDetailContainer> {
     userSnapshot =
         await FirebaseFirestore.instance.collection('users').doc(uid).get();
 
-    setState(() {
-      CircleAvatar(
-        backgroundColor: AppColors.darkblue,
-        radius: 40,
-        backgroundImage: NetworkImage(userSnapshot!['photo'] as String),
-      );
-    });
+    setState(() {});
+    //print(userSnapshot! as Map<String, dynamic>);
   }
 
   @override
@@ -58,9 +53,7 @@ class _UserDetailContainerState extends State<UserDetailContainer> {
                 Color.fromARGB(255, 12, 22, 31),
               ])),
       child: userSnapshot == null
-          ? const Center(
-              child: SpinKitDualRing(color: AppColors.darkblue),
-            )
+          ? const Center(child: Text('loading'))
           : InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
@@ -77,12 +70,12 @@ class _UserDetailContainerState extends State<UserDetailContainer> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Name: ${userSnapshot!['name']}',
+                          '${userSnapshot!['name']}',
                           style: const TextStyle(
                               fontSize: 14, color: Colors.white),
                         ),
                         Text(
-                          'Course: ${userSnapshot!['course']}',
+                          '${userSnapshot!['course']}',
                           style: const TextStyle(
                               fontSize: 14, color: Colors.white),
                         ),
@@ -90,7 +83,7 @@ class _UserDetailContainerState extends State<UserDetailContainer> {
                           maxLines: 2, // Set to 2 to limit to two lines
                           overflow:
                               TextOverflow.ellipsis, // Show ellipsis (...) for
-                          'email: ${userSnapshot!['email']}',
+                          '${userSnapshot!['email']}',
                           style: const TextStyle(
                               fontSize: 12, color: Colors.white),
                         )
@@ -100,12 +93,16 @@ class _UserDetailContainerState extends State<UserDetailContainer> {
                       width: 10,
                     ),
                     Expanded(
-                      child: CircleAvatar(
-                        backgroundColor: AppColors.darkblue,
-                        radius: 40,
-                        backgroundImage:
-                            NetworkImage(userSnapshot!['photo'] as String),
-                      ),
+                      child: userSnapshot!['photo'] == null
+                          ? CircleAvatar(
+                              radius: 40,
+                            )
+                          : CircleAvatar(
+                              backgroundColor: AppColors.darkblue,
+                              radius: 40,
+                              backgroundImage: NetworkImage(
+                                  userSnapshot!['photo'] as String),
+                            ),
                     ),
                   ],
                 ),
@@ -135,12 +132,20 @@ class DashContainer extends StatelessWidget {
     return InkWell(
       onTap: voidCallback,
       child: Container(
-        height: height * 0.15,
-        width: width * 0.35,
+        height: height * 0.14,
+        width: width * 0.38,
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: const [BoxShadow(spreadRadius: 1, blurRadius: 5)]),
+          color: AppColors.fullwhite,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 2,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

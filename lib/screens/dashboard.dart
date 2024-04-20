@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/admin/adminscreen.dart';
 import 'package:flutter_application_1/screens/functional_screens/assignment_screen.dart';
 import 'package:flutter_application_1/screens/functional_screens/attendence_screen.dart';
-import 'package:flutter_application_1/screens/functional_screens/course_screen.dart';
+import 'package:flutter_application_1/screens/functional_screens/course/navdrop.dart';
 import 'package:flutter_application_1/screens/functional_screens/fee_screen.dart';
 import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
@@ -120,8 +120,7 @@ class _DashBoardState extends State<DashBoard> {
                       voidCallback: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const CourseScreen(),
+                            builder: (BuildContext context) => const navdrop(),
                           ),
                         );
                       },
