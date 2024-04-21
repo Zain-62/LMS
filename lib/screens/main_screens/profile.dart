@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
+import 'package:flutter_application_1/utilities/textdetail.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
@@ -131,29 +132,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 const Gap(20),
-                Text('Name: ${userSnapshot!['name']}',
-                    textAlign: TextAlign.center),
-                const Gap(20),
-                Text('Email: ${userSnapshot!['email']}',
-                    textAlign: TextAlign.center),
-                const Gap(20),
-                Text('Mobile: ${userSnapshot!['mobile']}',
-                    textAlign: TextAlign.center),
-                const Gap(20),
-                Text(
-                    'Member Since: ${dates.getHumanReadableDate(userSnapshot!['createdOn'])}',
-                    textAlign: TextAlign.center),
-                const Gap(20),
-                ElevatedButton(
-                    onPressed: () async {
-                      await FirebaseAuth.instance.currentUser!.delete();
-
-                      Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) {
-                        return const LoginScreen();
-                      }));
-                    },
-                    child: const Text('Delete Account')),
+                DetailScreen(txt: 'Student Detail'),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: Card(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Name: ${userSnapshot!['name']}',
+                        ),
+                        const Gap(20),
+                        Text(
+                          'Email: ${userSnapshot!['email']}',
+                        ),
+                        const Gap(20),
+                        Text(
+                          'Mobile: ${userSnapshot!['mobile']}',
+                        ),
+                        const Gap(20),
+                        Text(
+                          'Member Since: ${dates.getHumanReadableDate(userSnapshot!['createdOn'])}',
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
     );

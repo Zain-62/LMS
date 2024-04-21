@@ -12,7 +12,7 @@ class Elevated extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: voidCallback,
-      style: ElevatedButton.styleFrom(backgroundColor: AppColors.darkblue),
+      style: ElevatedButton.styleFrom(backgroundColor: darkblue),
       child: Text(
         txt,
         style: const TextStyle(color: Colors.white, fontSize: 20),

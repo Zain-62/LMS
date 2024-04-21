@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/admin/adminscreen.dart';
 import 'package:flutter_application_1/screens/functional_screens/assignment_screen.dart';
 import 'package:flutter_application_1/screens/functional_screens/attendence_screen.dart';
-import 'package:flutter_application_1/screens/functional_screens/course/navdrop.dart';
-import 'package:flutter_application_1/screens/functional_screens/fee_screen.dart';
+import 'package:flutter_application_1/utilities/textdetail.dart';
+import 'package:flutter_application_1/screens/functional_screens/course/coursedetail.dart';
+import 'package:flutter_application_1/screens/functional_screens/fees/fee_screen.dart';
 import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
 import 'package:flutter_application_1/widgeta/user_container.dart';
@@ -50,7 +51,7 @@ class _DashBoardState extends State<DashBoard> {
                   color: Colors.white),
             ),
             centerTitle: true,
-            backgroundColor: AppColors.darkblue,
+            backgroundColor: darkblue,
           ),
           drawer: Drawer(
             child: Column(
@@ -74,7 +75,11 @@ class _DashBoardState extends State<DashBoard> {
               children: [
                 UserDetailContainer(),
                 const SizedBox(
-                  height: 30,
+                  height: 10,
+                ),
+                DetailScreen(txt: "Notifications"),
+                const SizedBox(
+                  height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -108,7 +113,7 @@ class _DashBoardState extends State<DashBoard> {
                   ],
                 ),
                 const SizedBox(
-                  height: 50,
+                  height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -119,7 +124,8 @@ class _DashBoardState extends State<DashBoard> {
                       voidCallback: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (BuildContext context) => const navdrop(),
+                            builder: (BuildContext context) =>
+                                const CourseDetail(),
                           ),
                         );
                       },
@@ -140,7 +146,7 @@ class _DashBoardState extends State<DashBoard> {
                   ],
                 ),
                 const SizedBox(
-                  height: 50,
+                  height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,

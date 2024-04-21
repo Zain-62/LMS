@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.darkblue,
+                  color: darkblue,
                 ),
               ),
               const Gap(50),

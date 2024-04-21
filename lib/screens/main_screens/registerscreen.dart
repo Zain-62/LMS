@@ -55,7 +55,7 @@ class _RegisterScrrenState extends State<RegisterScrren> {
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.darkblue,
+                  color: darkblue,
                 ),
               ),
             ),

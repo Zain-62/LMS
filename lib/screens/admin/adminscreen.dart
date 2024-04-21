@@ -29,7 +29,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   color: Colors.white),
             ),
             centerTitle: true,
-            backgroundColor: AppColors.darkblue,
+            backgroundColor: darkblue,
           ),
           drawer: const Drawer(),
           body: Padding(

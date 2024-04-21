@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/functional_screens/course/coursedetail.dart';
+import 'package:flutter_application_1/utilities/textdetail.dart';
 
 class IntroDetail extends StatelessWidget {
   const IntroDetail({super.key});

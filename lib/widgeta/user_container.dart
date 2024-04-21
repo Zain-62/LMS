@@ -95,7 +95,7 @@ class _UserDetailContainerState extends State<UserDetailContainer> {
                               radius: 40,
                             )
                           : CircleAvatar(
-                              backgroundColor: AppColors.darkblue,
+                              backgroundColor: darkblue,
                               radius: 40,
                               backgroundImage: NetworkImage(
                                   userSnapshot!['photo'] as String),
@@ -132,7 +132,7 @@ class DashContainer extends StatelessWidget {
         height: height * 0.14,
         width: width * 0.38,
         decoration: BoxDecoration(
-          color: AppColors.fullwhite,
+          color: fullwhite,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
@@ -152,14 +152,14 @@ class DashContainer extends StatelessWidget {
                 Icon(
                   icons1,
                   size: height * 0.06,
-                  color: AppColors.darkblue,
+                  color: darkblue,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, left: 35),
                   child: Icon(
                     icons2,
                     size: height * 0.04,
-                    color: AppColors.darkblue,
+                    color: darkblue,
                   ),
                 ),
               ],
@@ -168,7 +168,7 @@ class DashContainer extends StatelessWidget {
               txt,
               style: const TextStyle(
                 fontSize: 14,
-                color: AppColors.darkblue,
+                color: darkblue,
               ),
             )
           ],
