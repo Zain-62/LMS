@@ -9,7 +9,6 @@ import 'package:flutter_application_1/screens/functional_screens/fee_screen.dart
 import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
 import 'package:flutter_application_1/widgeta/user_container.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DashBoard extends StatefulWidget {

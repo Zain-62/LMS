@@ -9,7 +9,7 @@ import 'package:flutter_application_1/widgeta/textfield.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
 
-import '../dashboard.dart';
+import 'dashboard.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

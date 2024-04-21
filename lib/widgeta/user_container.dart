@@ -1,15 +1,12 @@
 // ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables, non_constant_identifier_names
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/screens/profile.dart';
+import 'package:flutter_application_1/screens/main_screens/profile.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class UserDetailContainer extends StatefulWidget {
-  UserDetailContainer({super.key});
+  const UserDetailContainer({super.key});
 
   @override
   State<UserDetailContainer> createState() => _UserDetailContainerState();
