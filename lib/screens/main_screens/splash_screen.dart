@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
+import 'package:flutter_application_1/widgeta/shimmer.dart';
 import 'dashboard.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
               builder: (context) =>
                   (FirebaseAuth.instance.currentUser != null &&
                           FirebaseAuth.instance.currentUser!.emailVerified)
-                      ? DashBoard()
+                      ? ShimmerScreen()
                       : const LoginScreen(),
             )));
   }

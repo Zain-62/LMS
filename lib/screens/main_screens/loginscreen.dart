@@ -5,11 +5,10 @@ import 'package:flutter_application_1/screens/main_screens/registerscreen.dart';
 import 'package:flutter_application_1/screens/main_screens/varificationscreen.dart';
 import 'package:flutter_application_1/utilities/constants.dart';
 import 'package:flutter_application_1/widgeta/buutons.dart';
+import 'package:flutter_application_1/widgeta/shimmer.dart';
 import 'package:flutter_application_1/widgeta/textfield.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
-
-import 'dashboard.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -69,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 lbl: 'User Email',
               ),
               TextFields(
+                obs: true,
                 control: passC,
                 icon: const Icon(
                   Icons.lock,
@@ -94,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         if (userC.user!.emailVerified) {
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(builder: (context) {
-                            return const DashBoard();
+                            return const ShimmerScreen();
                           }));
                         } else {
                           Navigator.of(context)

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/admin/uploadass.dart';
 import 'package:flutter_application_1/screens/functional_screens/assignment_screen.dart';
 import 'package:flutter_application_1/screens/functional_screens/attendence_screen.dart';
 import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
@@ -64,7 +65,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) =>
-                                const AssignmentScreen(),
+                                const AddTaskScreen(),
                           ),
                         );
                       },

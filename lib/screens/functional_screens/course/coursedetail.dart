@@ -115,13 +115,13 @@ class _CourseDetailState extends State<CourseDetail> {
             ),
             Card(
               child: ExpansionTile(
-                title: DetailScreen(txt: "2.    Cloud Computing "),
+                title: DetailScreen(txt: "2.    Networking "),
                 children: [
-                  Text("Cloud Computing"),
+                  Text("Cloud & Data Center."),
                   Divider(),
-                  Text('Cloud Computing Roots'),
+                  Text('Mobile & Wireless'),
                   Divider(),
-                  Text('Cloud Layers and Types'),
+                  Text('Network Security.'),
                   Divider()
                 ],
               ),
@@ -131,29 +131,13 @@ class _CourseDetailState extends State<CourseDetail> {
             ),
             Card(
               child: ExpansionTile(
-                title: DetailScreen(txt: "2.    Cloud Computing "),
+                title: DetailScreen(txt: "2.   web development "),
                 children: [
-                  Text("Cloud Computing"),
+                  Text("Html"),
                   Divider(),
-                  Text('Cloud Computing Roots'),
+                  Text('CSS'),
                   Divider(),
-                  Text('Cloud Layers and Types'),
-                  Divider()
-                ],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.005,
-            ),
-            Card(
-              child: ExpansionTile(
-                title: DetailScreen(txt: "2.    Cloud Computing "),
-                children: [
-                  Text("Cloud Computing"),
-                  Divider(),
-                  Text('Cloud Computing Roots'),
-                  Divider(),
-                  Text('Cloud Layers and Types'),
+                  Text('Javascript'),
                   Divider()
                 ],
               ),

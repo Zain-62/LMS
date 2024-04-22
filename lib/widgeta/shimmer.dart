@@ -1,0 +1,51 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/main_screens/dashboard.dart';
+import 'package:shimmer/shimmer.dart';
+
+class ShimmerScreen extends StatefulWidget {
+  const ShimmerScreen({super.key});
+
+  @override
+  State<ShimmerScreen> createState() => _ShimmerScreenState();
+}
+
+class _ShimmerScreenState extends State<ShimmerScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+        const Duration(seconds: 2),
+        () => Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DashBoard(),
+            )));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView.builder(
+          itemCount: 20,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Shimmer.fromColors(
+                baseColor: Colors.grey.shade300,
+                highlightColor: Color.fromARGB(255, 204, 204, 204),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(360),
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            );
+          }),
+    );
+  }
+}

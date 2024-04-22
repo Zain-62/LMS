@@ -104,8 +104,7 @@ class _DashBoardState extends State<DashBoard> {
                       voidCallback: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const AssignmentScreen(),
+                            builder: (BuildContext context) => const stassign(),
                           ),
                         );
                       },
