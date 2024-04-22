@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/admin/uploadass.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
@@ -19,10 +18,7 @@ class _DashboardScreenState extends State<stassign> {
   @override
   void initState() {
     String uid = FirebaseAuth.instance.currentUser!.uid;
-    tasksRef = FirebaseFirestore.instance
-        .collection('tasks')
-        .doc(uid)
-        .collection('tasks');
+    tasksRef = FirebaseFirestore.instance.collection('tasks');
 
     super.initState();
   }

@@ -46,14 +46,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 onPressed: () async {
                   String title = taskC.text.trim();
 
-                  String uid = FirebaseAuth.instance.currentUser!.uid;
                   int createdOn = DateTime.now().millisecondsSinceEpoch;
 
-                  var taskRef = FirebaseFirestore.instance
-                      .collection('tasks')
-                      .doc(uid)
-                      .collection('tasks')
-                      .doc();
+                  var taskRef =
+                      FirebaseFirestore.instance.collection('tasks').doc();
 
                   await taskRef.set({
                     'taskId': taskRef.id,
