@@ -1,23 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
 
-class stassign extends StatefulWidget {
-  const stassign({super.key});
+class StAssign extends StatefulWidget {
+  const StAssign({super.key});
 
   @override
-  State<stassign> createState() => _DashboardScreenState();
+  State<StAssign> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenState extends State<stassign> {
+class _DashboardScreenState extends State<StAssign> {
   CollectionReference? tasksRef;
 
   @override
   void initState() {
-    String uid = FirebaseAuth.instance.currentUser!.uid;
     tasksRef = FirebaseFirestore.instance.collection('tasks');
 
     super.initState();
