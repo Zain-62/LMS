@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/utilities/constants.dart';
+
+import 'constants.dart';
 
 class DetailScreen extends StatelessWidget {
   final String txt;

@@ -4,6 +4,9 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
 
+import '../../utilities/constants.dart';
+import '../../utilities/textdetail.dart';
+
 class StAssign extends StatefulWidget {
   const StAssign({super.key});
 
@@ -26,8 +29,8 @@ class _DashboardScreenState extends State<StAssign> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Dashboard',
-          style: TextStyle(color: Colors.white),
+          'Assignments',
+          style: TextStyle(color: darkblue),
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(
@@ -47,68 +50,10 @@ class _DashboardScreenState extends State<StAssign> {
                   itemCount: tasksList.length,
                   itemBuilder: (context, index) {
                     return Card(
-                      color: Colors.purple,
-                      child: ListTile(
-                        title: Text(
-                          tasksList[index]['title'],
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                        trailing: SizedBox(
-                          width: 120,
-                          child: Row(
-                            children: [
-                              IconButton(
-                                  onPressed: () {
-                                    showDialog(
-                                        context: context,
-                                        builder: (context) {
-                                          return AlertDialog(
-                                            title: const Text('Confirmation'),
-                                            content: const Row(
-                                              children: [
-                                                Icon(
-                                                  Icons.delete,
-                                                  color: Colors.red,
-                                                ),
-                                                Gap(16),
-                                                Text('Are you sure to delete?')
-                                              ],
-                                            ),
-                                            actions: [
-                                              TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context).pop();
-                                                  },
-                                                  child: const Text('No')),
-                                              TextButton(
-                                                  onPressed: () async {
-                                                    Navigator.of(context).pop();
-
-                                                    // Delete logic here
-
-                                                    await tasksRef!
-                                                        .doc(tasksList[index]
-                                                            ['taskId'])
-                                                        .delete();
-
-                                                    Fluttertoast.showToast(
-                                                        msg: 'Deleted');
-                                                  },
-                                                  child: const Text('Yes')),
-                                            ],
-                                          );
-                                        });
-                                  },
-                                  icon: const Icon(
-                                    Icons.delete,
-                                    size: 40,
-                                    color: Colors.red,
-                                  )),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
+                        color: darkblue,
+                        child: DetailScreen(
+                          txt: tasksList[index]['title'],
+                        ));
                   }),
             );
           } else if (snapshot.hasError) {

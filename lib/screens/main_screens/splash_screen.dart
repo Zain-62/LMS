@@ -2,9 +2,9 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
-import 'package:flutter_application_1/widgeta/shimmer.dart';
-import 'dashboard.dart';
+
+import '../../widgeta/shimmer.dart';
+import 'loginscreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

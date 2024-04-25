@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/admin/uploadass.dart';
-import 'package:flutter_application_1/screens/functional_screens/assignment_screen.dart';
-import 'package:flutter_application_1/screens/functional_screens/attendence_screen.dart';
-import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
-import 'package:flutter_application_1/utilities/constants.dart';
-import 'package:flutter_application_1/widgeta/user_container.dart';
-
+import '../../utilities/constants.dart';
+import '../../widgeta/user_container.dart';
+import '../functional_screens/attendence_screen.dart';
+import '../main_screens/loginscreen.dart';
 import '../main_screens/registerscreen.dart';
+import 'manageassign.dart';
+import 'uploadass.dart';
 
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
@@ -45,14 +44,13 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     DashContainer(
-                      icons1: Icons.person,
-                      icons2: Icons.done_outline_outlined,
-                      txt: 'Attendence',
+                      icons1: Icons.school_sharp,
+                      txt: 'Register\nstudent',
                       voidCallback: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) =>
-                                const AttendenceScreen(),
+                                const RegisterScrren(),
                           ),
                         );
                       },
@@ -60,7 +58,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                     DashContainer(
                       icons1: Icons.assignment,
                       icons2: Icons.edit,
-                      txt: 'Assignments',
+                      txt: 'upload Assignments',
                       voidCallback: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
@@ -79,13 +77,47 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     DashContainer(
-                      icons1: Icons.school_sharp,
-                      txt: 'Register\nstudent',
+                      icons1: Icons.assignment,
+                      txt: 'Assignments',
                       voidCallback: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (BuildContext context) =>
-                                const RegisterScrren(),
+                                const ManageAssign(),
+                          ),
+                        );
+                      },
+                    ),
+                    DashContainer(
+                      icons1: Icons.assignment,
+                      icons2: Icons.edit,
+                      txt: 'Notification',
+                      voidCallback: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const AddTaskScreen(),
+                          ),
+                        );
+                      },
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    DashContainer(
+                      icons1: Icons.person,
+                      icons2: Icons.done_outline_outlined,
+                      txt: 'Attendence',
+                      voidCallback: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const AttendenceScreen(),
                           ),
                         );
                       },

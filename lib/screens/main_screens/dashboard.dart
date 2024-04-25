@@ -1,16 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/admin/adminscreen.dart';
-import 'package:flutter_application_1/screens/functional_screens/assignment_screen.dart';
-import 'package:flutter_application_1/screens/functional_screens/attendence_screen.dart';
-import 'package:flutter_application_1/utilities/textdetail.dart';
-import 'package:flutter_application_1/screens/functional_screens/course/coursedetail.dart';
-import 'package:flutter_application_1/screens/functional_screens/fees/fee_screen.dart';
-import 'package:flutter_application_1/screens/main_screens/loginscreen.dart';
-import 'package:flutter_application_1/utilities/constants.dart';
-import 'package:flutter_application_1/widgeta/user_container.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../utilities/constants.dart';
+import '../../utilities/textdetail.dart';
+import '../../widgeta/user_container.dart';
+import '../admin/adminscreen.dart';
+import '../functional_screens/assignment_screen.dart';
+import '../functional_screens/attendence_screen.dart';
+import '../functional_screens/course/coursedetail.dart';
+import '../functional_screens/fees/fee_screen.dart';
+import 'loginscreen.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});
@@ -157,12 +158,6 @@ class _DashBoardState extends State<DashBoard> {
                       voidCallback: () {
                         // ignore: deprecated_member_use
                         launch('https://wa.me/message/ROZDRCMNK3CMP1');
-                        // Navigator.of(context).push(
-                        //   MaterialPageRoute(
-                        //     builder: (BuildContext context) =>
-                        //         const QueryScrren(),
-                        //   ),
-                        // );
                       },
                     ),
                     DashContainer(

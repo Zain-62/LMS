@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/main_screens/dashboard.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../screens/main_screens/dashboard.dart';
 
 class ShimmerScreen extends StatefulWidget {
   const ShimmerScreen({super.key});

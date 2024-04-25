@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/utilities/textdetail.dart';
+
+import '../../../utilities/textdetail.dart';
 
 class CDart extends StatefulWidget {
   const CDart({super.key});

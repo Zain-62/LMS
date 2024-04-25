@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/utilities/constants.dart';
 
+import '../../../utilities/constants.dart';
+
+// ignore: must_be_immutable
 class FeeDetail extends StatelessWidget {
   String cName;
   String fee;

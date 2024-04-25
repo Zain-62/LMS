@@ -1,7 +1,8 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/utilities/constants.dart';
+
+import '../utilities/constants.dart';
 
 class Elevated extends StatelessWidget {
   String txt;

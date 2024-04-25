@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/functional_screens/fees/feedetail.dart';
-import 'package:flutter_application_1/utilities/textdetail.dart';
-import 'package:flutter_application_1/widgeta/user_container.dart';
+
+import '../../../utilities/textdetail.dart';
+import '../../../widgeta/user_container.dart';
+import 'feedetail.dart';
 
 class FeeScreen extends StatefulWidget {
   const FeeScreen({super.key});
