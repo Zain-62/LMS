@@ -12,7 +12,7 @@ class CDart extends StatefulWidget {
 class _CDartState extends State<CDart> {
   @override
   Widget build(BuildContext context) {
-    return Drawer(
+    return const Drawer(
       child: SafeArea(
         child: Scaffold(
           body: Padding(

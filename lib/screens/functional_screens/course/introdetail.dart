@@ -7,7 +7,7 @@ class IntroDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
+    return const Drawer(
       child: SafeArea(
         child: Scaffold(
           body: Column(

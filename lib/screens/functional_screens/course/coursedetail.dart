@@ -22,22 +22,22 @@ class _CourseDetailState extends State<CourseDetail> {
         padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: [
-            UserDetailContainer(),
+            const UserDetailContainer(),
             const SizedBox(
               height: 30,
             ),
-            DetailScreen(txt: "Couse Detail"),
+            const DetailScreen(txt: "Couse Detail"),
             Card(
               shadowColor: darkblue,
               elevation: 1,
               child: ExpansionTile(
-                title: DetailScreen(txt: "1.    App development "),
+                title: const DetailScreen(txt: "1.    App development "),
                 children: [
                   TxtButton(
                       onpressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return CDart();
+                          return const CDart();
                         }));
                       },
                       txt: "Dart "),
@@ -46,7 +46,7 @@ class _CourseDetailState extends State<CourseDetail> {
                       onpressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return IntroDetail();
+                          return const IntroDetail();
                         }));
                       },
                       txt: "Flutter - Introduction to Widgets "),
@@ -97,7 +97,7 @@ class _CourseDetailState extends State<CourseDetail> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.005,
             ),
-            Card(
+            const Card(
               child: ExpansionTile(
                 title: DetailScreen(txt: "2.    Cloud Computing"),
                 children: [
@@ -113,7 +113,7 @@ class _CourseDetailState extends State<CourseDetail> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.005,
             ),
-            Card(
+            const Card(
               child: ExpansionTile(
                 title: DetailScreen(txt: "2.    Networking "),
                 children: [
@@ -129,7 +129,7 @@ class _CourseDetailState extends State<CourseDetail> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.005,
             ),
-            Card(
+            const Card(
               child: ExpansionTile(
                 title: DetailScreen(txt: "2.   web development "),
                 children: [

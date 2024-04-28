@@ -64,7 +64,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     TaskSnapshot snapshot = await uploadTask;
 
     String profileImageUrl = await snapshot.ref.getDownloadURL();
-    print(profileImageUrl);
 
     // save its url in users collection
 
@@ -129,7 +128,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 const Gap(20),
-                DetailScreen(txt: 'Student Detail'),
+                const DetailScreen(txt: 'Student Detail'),
                 Padding(
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   child: Card(

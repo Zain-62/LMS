@@ -92,7 +92,7 @@ class _UserDetailContainerState extends State<UserDetailContainer> {
                     ),
                     Expanded(
                       child: userSnapshot!['photo'] == null
-                          ? CircleAvatar(
+                          ? const CircleAvatar(
                               radius: 40,
                             )
                           : CircleAvatar(
@@ -140,7 +140,7 @@ class DashContainer extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
               blurRadius: 2,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ],
         ),

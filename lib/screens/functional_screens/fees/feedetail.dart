@@ -15,7 +15,7 @@ class FeeDetail extends StatelessWidget {
       child: Card(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.06,
               child: Card(
@@ -34,7 +34,7 @@ class FeeDetail extends StatelessWidget {
             ),
             Text(
               "Total Fee: $fee",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             )
           ],
         ),

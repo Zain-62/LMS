@@ -74,11 +74,11 @@ class _DashBoardState extends State<DashBoard> {
             padding: const EdgeInsets.all(20.0),
             child: ListView(
               children: [
-                UserDetailContainer(),
+                const UserDetailContainer(),
                 const SizedBox(
                   height: 10,
                 ),
-                DetailScreen(txt: "Notifications"),
+                const DetailScreen(txt: "Notifications"),
                 const SizedBox(
                   height: 20,
                 ),

@@ -19,11 +19,11 @@ class _FeeScreenState extends State<FeeScreen> {
         padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: [
-            UserDetailContainer(),
+            const UserDetailContainer(),
             const SizedBox(
               height: 30,
             ),
-            DetailScreen(txt: "Fee record"),
+            const DetailScreen(txt: "Fee record"),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.009,
             ),

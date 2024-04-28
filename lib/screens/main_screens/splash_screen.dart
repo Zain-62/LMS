@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
               builder: (context) =>
                   (FirebaseAuth.instance.currentUser != null &&
                           FirebaseAuth.instance.currentUser!.emailVerified)
-                      ? ShimmerScreen()
+                      ? const ShimmerScreen()
                       : const LoginScreen(),
             )));
   }
